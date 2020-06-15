@@ -1,0 +1,20 @@
+{
+  "scriptFile": "__init__.py",
+  "disabled": true,
+  "bindings": [
+    {
+      "type": "timerTrigger",
+      "name": "sineGenerator",
+      "direction": "in",
+      "schedule": "* */1 * * * *",
+      "runOnStartup": true,
+    },
+    {
+      "type": "eventHub",
+      "name": "eventHubMsg",
+      "eventHubName": "sinewave",
+      "connection": "EVENT_HUB_NAMESPACE",
+      "direction": "out"
+  }
+  ]
+}
