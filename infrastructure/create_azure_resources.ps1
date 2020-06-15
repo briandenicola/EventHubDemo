@@ -37,7 +37,7 @@ Write-Log -LogText "Creating Event Hub Namespace"
 az eventhubs namespace create -g $ResourceGroup -n $eventHubNameSpace -l $region --sku Standard --enable-auto-inflate --maximum-throughput-units 5 --enable-kafka
 
 Write-Log -LogText "Creating Event Hub"
-az eventhubs eventhub create -g $ResourceGroup --namespace-name $eventHubNameSpace -n $eventHubName
+az eventhubs eventhub create -g $ResourceGroup --namespace-name $eventHubNameSpace -n $eventHubName --partition-count 1
 
 Write-Log -LogText "Creating Azure Function Storage Account"
 az storage account create --name $funcStorageName --location $Region --resource-group $ResourceGroup --sku Standard_LRS
