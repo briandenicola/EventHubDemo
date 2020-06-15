@@ -37,13 +37,13 @@ Write-Log -LogText "Creating Event Hub Namespace"
 az eventhubs namespace create -g $ResourceGroup -n $eventHubNameSpace -l $region --sku Standard --enable-auto-inflate --maximum-throughput-units 5 --enable-kafka
 
 Write-Log -LogText "Creating Event Hub"
-az eventhubs eventhub create -g $ResourceGroup --namespace-name $eventHubNameSpace -n $eventHubName --message-retention 7 --partition-count 15
+az eventhubs eventhub create -g $ResourceGroup --namespace-name $eventHubNameSpace -n $eventHubName
 
 Write-Log -LogText "Creating Azure Function Storage Account"
 az storage account create --name $funcStorageName --location $Region --resource-group $ResourceGroup --sku Standard_LRS
 
 Write-Log -LogText "Creating Azure Function"
-az functionapp create --name $functionAppName --storage-account $funcStorageName --consumption-plan-location $Region  --os-type linux --resource-group $ResourceGroup  --functions-version 2  --runtime python  --runtime-version 3.8
+az functionapp create --name $functionAppName --storage-account $funcStorageName --consumption-plan-location $Region  --os-type linux --resource-group $ResourceGroup  --functions-version 3  --runtime python  --runtime-version 3.8
 az functionapp identity assign --name $functionAppName --resource-group $ResourceGroup
 
 Write-Log -LogText "Creating Azure Function"
