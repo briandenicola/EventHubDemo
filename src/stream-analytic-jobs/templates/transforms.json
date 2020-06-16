@@ -1,0 +1,9 @@
+{
+    "name":"SineWaveTransform",
+    "type":"Microsoft.StreamAnalytics/streamingjobs/transformations",
+    "properties":{
+        "streamingUnits":1,
+        "script":null,
+        "query":"SELECT Count(*) as [COUNT], CAST (system.timestamp() as Datetime) as Processed, p INTO [PowerBI] FROM [EventHubInput] GROUP BY SlidingWindow(ms,1), p"
+    }
+}

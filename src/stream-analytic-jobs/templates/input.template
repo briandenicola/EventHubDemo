@@ -1,0 +1,26 @@
+{
+    "properties": {
+        "type": "Stream",
+        "datasource": {
+            "type": "Microsoft.ServiceBus/EventHub",
+            "properties": {
+                "eventHubName": "{{EVENTHUB}}",
+                "serviceBusNamespace": "{{EVENTHUBNAMESPACE}}",
+                "sharedAccessPolicyName": "RootManageSharedAccessKey",
+                "sharedAccessPolicyKey": "{{KEY}}",
+                "consumerGroupName": "$Default"
+            }
+        },
+        "compression": {
+            "type": "None"
+        },
+        "serialization": {
+            "type": "Json",
+            "properties": {
+                "encoding": "UTF8"
+            }
+        }
+    },
+    "name": "EventHubInput",
+    "type": "Microsoft.StreamAnalytics/streamingjobs/inputs"
+}

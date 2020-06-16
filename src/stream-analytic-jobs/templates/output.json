@@ -1,0 +1,6 @@
+{
+    "properties": {
+    },
+    "name": "PowerBI",
+    "type": "Microsoft.StreamAnalytics/streamingjobs/outputs"
+}
